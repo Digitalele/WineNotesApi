@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <!-- Simple form which will send a POST request -->
+<form action="/api/crud/add" method="POST">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name">
+
+  <label for="year">Year</label>
+  <input type="number" name="year" id="year">
+
+  <label for="raiting">Raiting</label>
+  <input type="text" name="raiting" id="raiting">
+
+  <label for="varyetal">Varyetal</label>
+  <input type="text" name="varyetal" id="varyetal">
+
+  <label for="type">Type</label>
+  <input type="text" name="type" id="type">
+
+  <label for="farm">Farm</label>
+  <input type="text" name="farm" id="farm">
+
+  <button type="submit">Create Wine</button>
+</form>
+  </body>
+</html>
+
+

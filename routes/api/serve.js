@@ -9,8 +9,26 @@ router.get('/wines', (req, res, next) => {
       res.json(err);
       return;
     }
-    res.json(wineList);
+    res.json(winesList);
   });
+});
+
+
+/* GET a single Phone. */
+router.get('/wine/:id', (req, res) => {
+  if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({ message: 'Specified id is not valid' });
+    return;
+  }
+  
+  Wine.findById(req.params.id, (err, theWine) => {
+      if (err) {
+        res.json(err);
+        return;
+      }
+
+      res.json(theWine);
+    });
 });
 
 module.exports = router;
