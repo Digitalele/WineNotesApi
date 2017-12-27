@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const phoneSchema = new mongoose.Schema({  
+const wineSchema = new mongoose.Schema({  
   name: {
     type: String,
     required: [true]
