@@ -6,7 +6,7 @@ const wineSchema = new mongoose.Schema({
     required: [true]
   },
   year: {
-    type: Number,
+    type: Date,
     required: [true]
   },
   raiting: {

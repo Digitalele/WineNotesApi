@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <% include ../partials/head %>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <!-- Simple form which will send a POST request -->
-<form action="/api/crud/add" method="POST">
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name">
+    
 
-  <label for="year">Year</label>
-  <input type="number" name="year" id="year">
+<div class="row">
+    <div class="col-md-6 col-md-offset-2">
+        <h1><%= title %></h1>
+        <p>Welcome to <%= title %></p>
 
-  <label for="raiting">Raiting</label>
-  <input type="text" name="raiting" id="raiting">
+        <form action="/api/crud/add" method="post">
+            <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" name="name" class="form-control" id="" placeholder="Wine Name">
+            </div>
 
-  <label for="varyetal">Varyetal</label>
-  <input type="text" name="varyetal" id="varyetal">
+            <div class="form-group">
+            <label for="">Wine Vintage (Year)</label>
+            <input type="date" name="year" class="form-control" id="" placeholder="Wine Vintage">
+            </div>
 
-  <label for="type">Type</label>
-  <input type="text" name="type" id="type">
+            <div class="form-group">
+            <label for="">Wine Raiting</label>
+            <input type="number" name="raiting" class="form-control" id="" placeholder="Enter Raiting">
+            </div>
 
-  <label for="farm">Farm</label>
-  <input type="text" name="farm" id="farm">
+            <div class="form-group">
+            <label for="">Wine Varyetal</label>
+            <input type="text" name="varyetal" class="form-control" id="" placeholder="Varyetal">
+            </div>
 
-  <button type="submit">Create Wine</button>
-</form>
+            <div class="form-group">
+            <label for="">Wine Type</label>
+            <input type="text" name="type" class="form-control" id="" placeholder="Enter Type">
+            </div>
+
+            <div class="form-group">
+            <label for="">Farm Name</label>
+            <input type="text" name="farm" class="form-control" id="" placeholder="Farm Name">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<a href="/">Back to Index</a>
   </body>
+  <% include ../partials/footer %>
 </html>
 
 
