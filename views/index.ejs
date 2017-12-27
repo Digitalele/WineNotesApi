@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+	<% include ../partials/head %>
+  
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
- 
+ 	<a href="/api/serve/wines">Go to API</a>
+ 	<a href="/manage">Add Wine</a>
   </body>
+
+	<% include ../partials/footer %>
+	
 </html>
