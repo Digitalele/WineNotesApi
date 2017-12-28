@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <% include ../partials/head %>
+  <body>
+    
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-2">
+		<h1>Display Wines Crud</h1>
+		<br>
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">Name</th>
+		      <th scope="col">Year</th>
+		      <th scope="col">Raiting</th>
+		      <th scope="col">Varietal</th>
+		      <th scope="col">Farm Name</th>
+		      <th scope="col">Organic</th>
+		      <th scope="col">View Wine</th>
+		      <th scope="col">Delete</th>
+		      <th scope="col">Update</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<% wines.forEach((wine) => { %>
+		    <tr>
+		      <td><%= wine.name %></td>
+		      <td><%= wine.year %></td>
+		      <td><%= wine.raiting %></td>
+		      <td><%= wine.varietal %></td>
+		      <td><%= wine.farm %></td>
+		      <td><% if (wine.organic) { %>
+				   <img src="http://www.ccpb.it/images/stories/newsonline/nuovo-logo-bio.jpg" width="50px">
+				<% } else {%>
+					Not Organic
+				<% }%>
+				</td>
+		      <td><a class="btn btn-primary" href="/api/crud/<%= wine.name %>">View Details</a></td>
+		      <td><a class="btn btn-primary" href="/api/crud/<%= wine._id %>/edit/">Edit Wine</a></td>
+		      <td>    	
+			  <form action="/api/crud/<%= wine._id %>/delete" method="POST">
+			    <button type="submit" class="btn btn-danger">Delete Wine</button>
+			  </form>
+		      </td>
+		    </tr>
+		    <%  }) %>
+		  </tbody>
+		</table>
+		<a href="/">Back to Index</a>
+    </div>
+</div>
+
+  </body>
+  <% include ../partials/footer %>
+</html>
+

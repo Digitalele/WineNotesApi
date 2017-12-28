@@ -14,13 +14,8 @@ router.get('/wines', (req, res, next) => {
 });
 
 
-/* GET a single Phone. */
+/* GET a single Wine by Id */
 router.get('/wine/:id', (req, res) => {
-  if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
-    res.status(400).json({ message: 'Specified id is not valid' });
-    return;
-  }
-  
   Wine.findById(req.params.id, (err, theWine) => {
       if (err) {
         res.json(err);
@@ -30,5 +25,23 @@ router.get('/wine/:id', (req, res) => {
       res.json(theWine);
     });
 });
+
+
+//%LIKE% search certain wine by Name for quering api from clients 
+router.get('/winename/:name', (req, res, next) => {
+  const wineName = req.params.name;
+    Wine.find(
+      { "name": { "$regex": wineName, "$options": "i" } },
+      function(err, wines) { 
+         if (err) {
+          res.json(err);
+          return;
+        }
+        res.json(wines);
+      } 
+    );
+});
+
+
 
 module.exports = router;

@@ -24,6 +24,10 @@ const wineSchema = new mongoose.Schema({
   farm: {
     type: String,
     required: [true]
+  },
+  organic: {
+    type: Boolean,
+    required: [false]
   }
 });
 

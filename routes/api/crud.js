@@ -2,6 +2,29 @@ const express = require('express');
 const router = express.Router();
 const Wine = require('../../models/Wine');
 
+
+//Display all wine
+/* GET all database products*/
+router.get('/wines', (req, res, next) => {
+    Wine.find({}, (err, wine) => {
+        if (err) { return next(err); }
+        
+        res.render('wines', { title: 'List Wine', wines: wine });
+    });
+});
+
+//Display certain wine by id
+router.get('/wine/:id', (req, res, next) => {
+  const wineId = req.query.id;
+
+  Wine.findById(wineId, (err, wine) => {
+    if (err) { return next(err); }
+    res.render('wines', { title: 'List Wine', wine: wine });
+  });
+});
+
+
+//Add Wine
 router.post('/add', (req, res, next) => {
   // Take the params, and translate them into a new object
   const wineInfo = {
@@ -10,10 +33,11 @@ router.post('/add', (req, res, next) => {
       raiting: req.body.raiting,
       varyetal: req.body.varyetal,
       type: req.body.type,
-      farm: req.body.farm
+      farm: req.body.farm,
+      organic: req.body.organic
   };
   
-  // Create a new Product with the params
+  // Create a new Wine with the params
   const newWine = new Wine(wineInfo);
 
   newWine.save( (err) => {
@@ -21,8 +45,18 @@ router.post('/add', (req, res, next) => {
 			console.log('error save', err);
 			return next(err) 
 		}
-    // redirect to the list of products if it saves
-    return res.redirect('/manage');
+    // redirect to the list of wine if it saves
+    return res.redirect('/api/crud/wines');
+  });
+});
+
+
+router.post('/:id/delete', (req, res, next) => {
+  const wineId = req.params.id;
+
+   Wine.findByIdAndRemove(wineId, (err, wine) => {
+    if (err){ return next(err); }
+   return res.redirect('/api/crud/wines');
   });
 
 });
