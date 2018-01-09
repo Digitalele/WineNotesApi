@@ -33,6 +33,8 @@ router.post('/add', (req, res, next) => {
       raiting: req.body.raiting,
       varietal: req.body.varietal,
       type: req.body.type,
+      vineyard: req.body.vineyard,
+      region: req.body.region,
       farm: req.body.farm,
       organic: req.body.organic
   };

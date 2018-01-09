@@ -6,7 +6,7 @@ const wineSchema = new mongoose.Schema({
     required: [true]
   },
   year: {
-    type: Date,
+    type: String,
     required: [true]
   },
   raiting: {
@@ -17,7 +17,15 @@ const wineSchema = new mongoose.Schema({
     type: String,
     required: [true]
   },
+  vineyard: {
+    type: String,
+    required: [true]
+  },
   type: {
+    type: String,
+    required: [true]
+  },
+  region: {
     type: String,
     required: [true]
   },
@@ -28,6 +36,10 @@ const wineSchema = new mongoose.Schema({
   organic: {
     type: Boolean,
     required: [false]
+  },
+  timestamp: { 
+    type : Date, 
+    default: Date.now 
   }
 });
 
