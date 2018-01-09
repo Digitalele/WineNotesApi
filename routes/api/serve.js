@@ -27,8 +27,25 @@ router.get('/wine/:id', (req, res) => {
 });
 
 
+//Display certain wine by name from input
+router.post('/winename', (req, res, next) => {
+  const wineName = req.body.name;
+  Wine.find(
+      { "name": { "$regex": wineName, "$options": "i" } },
+      function(err, wines) { 
+         if (err) {
+          res.json(err);
+          return;
+        }
+        res.json(wines);
+      } 
+    );
+
+});
+
+
 //%LIKE% search certain wine by Name for quering api from clients 
-router.get('/winename/:name', (req, res, next) => {
+  router.get('/winename/:name', (req, res, next) => {
   const wineName = req.params.name;
     Wine.find(
       { "name": { "$regex": wineName, "$options": "i" } },
@@ -41,6 +58,7 @@ router.get('/winename/:name', (req, res, next) => {
       } 
     );
 });
+
 
 
 

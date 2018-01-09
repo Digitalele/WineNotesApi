@@ -13,7 +13,7 @@ const wineSchema = new mongoose.Schema({
     type: Number, min: 10, max: 100,  
     required: [true]
   },
-  varyetal: {
+  varietal: {
     type: String,
     required: [true]
   },

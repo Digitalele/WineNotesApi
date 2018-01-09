@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<% include ../partials/head %>
-  
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
- 	<a href="/api/serve/wines">Go to API</a>
- 	<a href="/manage">Add Wine</a>
- 	<a href="/api/crud/wines">List Wines</a>
+		  <div class="row">
+		    <div class="col-md-6 col-md-offset-4">
+
+			<h1><%= title %></h1>
+			<p>Welcome to <%= title %></p>
+			<a href="/api/serve/wines">Go to API</a>
+			<a href="/manage">Add Wine</a>
+			<a href="/api/crud/wines">List Wines</a>
+			<br>
+			<br>
+		        <h3>Search Wine by name in Api</h3>
+		        <br>
+		        <form action="/api/serve/winename" method="post">
+		            <input type="text" name="name">
+		            <br><br>
+		            <button type="submit" class="btn btn-primary">Submit</button>
+		        </form>
+		    </div>
+		</div>
   </body>
 
 	<% include ../partials/footer %>

@@ -31,7 +31,7 @@ router.post('/add', (req, res, next) => {
       name: req.body.name,
       year: req.body.year,
       raiting: req.body.raiting,
-      varyetal: req.body.varyetal,
+      varietal: req.body.varietal,
       type: req.body.type,
       farm: req.body.farm,
       organic: req.body.organic

@@ -4,6 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const index = require('./routes/index');
 const api = require('./routes/api');
@@ -11,6 +12,12 @@ const api = require('./routes/api');
 require('./config/database');
 
 const app = express();
+
+//create a cors middleware
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:7777']
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
