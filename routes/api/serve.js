@@ -21,7 +21,6 @@ router.get('/wine/:id', (req, res) => {
         res.json(err);
         return;
       }
-
       res.json(theWine);
     });
 });
@@ -40,12 +39,11 @@ router.post('/winename', (req, res, next) => {
         res.json(wines);
       } 
     );
-
 });
 
 
 //%LIKE% search certain wine by Name for quering api from clients 
-  router.get('/winename/:name', (req, res, next) => {
+router.get('/winename/:name', (req, res, next) => {
   const wineName = req.params.name;
     Wine.find(
       { "name": { "$regex": wineName, "$options": "i" } },

@@ -35,7 +35,8 @@ const wineSchema = new mongoose.Schema({
   },
   organic: {
     type: Boolean,
-    required: [false]
+    required: [true],
+    default: false
   },
   timestamp: { 
     type : Date, 

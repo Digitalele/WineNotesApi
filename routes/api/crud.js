@@ -27,6 +27,17 @@ router.get('/wine/:id', (req, res, next) => {
 //Add Wine
 router.post('/add', (req, res, next) => {
   // Take the params, and translate them into a new object
+  console.log(req.body.organic);
+
+  function checkbox(){
+      if(req.body.organic){
+        return true;
+    } return false;
+  }
+
+  var organic = checkbox();
+  
+  
   const wineInfo = {
       name: req.body.name,
       year: req.body.year,
@@ -36,9 +47,9 @@ router.post('/add', (req, res, next) => {
       vineyard: req.body.vineyard,
       region: req.body.region,
       farm: req.body.farm,
-      organic: req.body.organic
+      organic: organic
   };
-  
+
   // Create a new Wine with the params
   const newWine = new Wine(wineInfo);
 

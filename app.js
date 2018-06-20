@@ -16,7 +16,7 @@ const app = express();
 //create a cors middleware
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:7777']
+  origin: ['http://localhost:7777', 'http://192.168.1.47:7777', 'http://192.168.1.45:7777']
 }));
 
 // view engine setup
